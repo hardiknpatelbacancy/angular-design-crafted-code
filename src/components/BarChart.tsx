@@ -37,18 +37,13 @@ const BarChart: React.FC<BarChartProps> = ({
     <div className={`bg-white p-5 rounded-lg shadow-sm ${className}`}>
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">{title}</h3>
-        <button className="text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-          </svg>
-        </button>
       </div>
       
-      <div className="h-48">
+      <div className="h-72">
         <ResponsiveContainer width="100%" height="100%">
           <ReChartsBar data={data} barSize={20}>
             <CartesianGrid vertical={false} stroke="#f5f5f5" />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <XAxis hide  dataKey="name" axisLine={false} tickLine={false} />
             <YAxis axisLine={false} tickLine={false} />
             <Tooltip />
             <Bar dataKey="value" fill={color} radius={[4, 4, 0, 0]} />

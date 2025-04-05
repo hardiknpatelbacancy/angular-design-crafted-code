@@ -1,8 +1,8 @@
-
 import React from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import Dashboard from "@/pages/Dashboard";
+import NavBar from "@/components/NavBar";
 
 const Index = () => {
   const user = {
@@ -12,15 +12,17 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <Sidebar className="hidden md:block" />
+    <div>
+      <NavBar />
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Header user={user} />
-        <div className="flex-1 overflow-y-auto bg-gray-50">
-          <Dashboard userName={user.name} />
+      <div className="flex h-screen bg-gray-50">
+        {/* Sidebar */}
+
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="flex-1 overflow-y-auto bg-gray-50">
+            <Dashboard userName={user.name} />
+          </div>
         </div>
       </div>
     </div>

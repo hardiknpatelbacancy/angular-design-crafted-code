@@ -12,8 +12,15 @@ interface PieChartProps {
   subtitle: string;
   className?: string;
 }
-
 const PieChart: React.FC<PieChartProps> = ({ data, title, subtitle, className }) => {
+  if (!data || data.length === 0) {
+    return (
+      <div className={`bg-white p-5 rounded-lg shadow-sm ${className}`}>
+        <div className="text-center text-gray-500">No data available</div>
+      </div>
+    );
+  }
+
   const total = data.reduce((sum, item) => sum + item.value, 0);
 
   return (
@@ -71,3 +78,4 @@ const PieChart: React.FC<PieChartProps> = ({ data, title, subtitle, className })
 };
 
 export default PieChart;
+
